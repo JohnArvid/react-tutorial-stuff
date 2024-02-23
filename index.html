@@ -6,6 +6,31 @@
     <title>Raw react</title>
 </head>
 <body>
-    
-</body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+      function CharacterCount({text}) {
+        return (
+          <div>
+            {`The text "${text}" has `}
+            {text.length ? <strong>{text.length}</strong> : 'No'}
+            {' characters'}
+          </div>
+        )
+      }
+  
+      const element = (
+        <>
+          <CharacterCount text="Hello World" />
+          <CharacterCount text="" />
+        </>
+      )
+      const container = document.getElementById('root')
+      const root = ReactDOM.createRoot(container)
+      root.render(element)
+    </script>
+  </body>
+  
 </html>
